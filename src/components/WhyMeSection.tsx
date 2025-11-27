@@ -26,78 +26,92 @@ const reasons = [
 
 export function WhyMeSection() {
   return (
-    <section id="why-me" className="py-24 relative overflow-hidden bg-white-section">
+    <section id="why-me" className="py-20 relative overflow-hidden bg-background">
       {/* Background */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-        <div className="absolute -top-20 -right-20 w-60 h-60 bg-primary/5 rounded-full blur-[100px]" />
-        <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-secondary/5 rounded-full blur-[100px]" />
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+        <div className="absolute top-1/4 left-0 w-1/4 h-1/2 bg-gradient-to-r from-primary/5 to-transparent rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Column - Reasons */}
-          <div className="order-2 lg:order-1">
-            <div className="grid sm:grid-cols-2 gap-4">
-              {reasons.map((reason, index) => (
-                <div
-                  key={reason.title}
-                  className={`rounded-2xl p-5 hover-lift group ${
-                    index % 2 === 0 ? "glass-white" : "glass"
-                  }`}
-                >
-                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-3 transition-colors duration-300 ${
-                    index % 2 === 0
-                      ? "bg-white/20 group-hover:bg-white/30"
-                      : "bg-primary/10 group-hover:bg-primary/20"
-                  }`}>
-                    <reason.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <h3 className="font-semibold mb-2">{reason.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {reason.description}
-                  </p>
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Left Column - Text & Image */}
+          <div className="space-y-6">
+            <div>
+              <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-3 block">
+                Why Work With Me
+              </span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+                Experience That{" "}
+                <span className="text-gradient">Makes the Difference</span>
+              </h2>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                Deep technical understanding meets genuine empathy. Whether you're exploring AI or scaling solutions, 
+                I help you navigate with confidence.
+              </p>
+            </div>
+
+            {/* MultipleAI Image & Partner Badge Combined */}
+            <div className="space-y-3">
+              <div className="relative max-w-sm">
+                <div className="absolute -inset-2 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl blur-lg" />
+                <div className="relative card-elevated p-2">
+                  <img 
+                    src={multipleAILogo} 
+                    alt="MultipleAI Australia - Enterprise AI Solutions" 
+                    className="w-full h-auto rounded-lg object-cover"
+                    loading="lazy"
+                  />
                 </div>
-              ))}
+              </div>
+
+              {/* Partner Badge */}
+              <div className="card-elevated p-4 bg-gradient-to-br from-primary/5 to-secondary/5 border-primary/20">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Award className="w-5 h-5 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs text-primary font-semibold uppercase tracking-wider mb-0.5">Official Partner</p>
+                    <p className="text-sm font-bold text-foreground">MultipleAI Australia</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">Enterprise AI Solutions & Implementation</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right Column - Text */}
-          <div className="order-1 lg:order-2">
-            <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-4 block">
-              Why Work With Me
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-              Experience That{" "}
-              <span className="text-gradient">Makes the Difference</span>
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Deep technical understanding meets genuine empathy. Whether you're exploring AI or scaling solutions, 
-              I help you navigate with confidence.
-            </p>
-
-            {/* MultipleAI Image */}
-            <div className="relative rounded-2xl overflow-hidden glass-white border border-white/30 mb-8 h-64 bg-gradient-to-br from-white/5 to-primary/5">
-              <img 
-                src={multipleAILogo} 
-                alt="MultipleAI Australia - Enterprise AI Solutions" 
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-
-            {/* Partner Badge - Enhanced with White */}
-            <div className="p-5 glass-white rounded-2xl border border-white/30">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
-                  <Award className="w-7 h-7 text-primary" />
-                </div>
-                <div className="flex-1">
-                  <p className="text-xs text-primary font-semibold uppercase tracking-wider mb-1">Official Partner</p>
-                  <p className="text-lg font-bold text-foreground">MultipleAI Australia</p>
-                  <p className="text-sm text-muted-foreground mt-1">Enterprise AI Solutions & Implementation</p>
-                </div>
-              </div>
+          {/* Right Column - Reasons Grid */}
+          <div className="lg:pt-16">
+            <div className="grid sm:grid-cols-2 gap-3">
+              {reasons.map((reason, index) => {
+                const isPrimary = index % 2 === 0;
+                
+                return (
+                  <div
+                    key={reason.title}
+                    className={`group hover-lift ${
+                      isPrimary 
+                        ? "card-elevated bg-gradient-to-br from-primary/5 to-transparent border-primary/20" 
+                        : "card-minimal"
+                    }`}
+                  >
+                    <div className="p-4 space-y-2.5">
+                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                        isPrimary
+                          ? "bg-primary/10 group-hover:bg-primary/20"
+                          : "bg-muted group-hover:bg-primary/10"
+                      }`}>
+                        <reason.icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <h3 className="font-bold text-sm">{reason.title}</h3>
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        {reason.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

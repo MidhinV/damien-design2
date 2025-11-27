@@ -25,10 +25,12 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass-strong py-3" : "bg-transparent py-5"
+        isScrolled 
+          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm py-3" 
+          : "bg-background/80 backdrop-blur-sm py-5"
       }`}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
+      <div className="container mx-auto px-6 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3 group">
           <img
             src={logo}
@@ -38,24 +40,26 @@ export function Header() {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-1">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium"
+              className="px-4 py-2 text-sm font-medium text-foreground/70 hover:text-primary transition-colors duration-200 rounded-lg hover:bg-muted/50"
             >
               {item.label}
             </a>
           ))}
-          <Button variant="glow" size="default">
-            Let's Talk
-          </Button>
+          <div className="ml-4 pl-4 border-l border-border">
+            <Button variant="default" size="default">
+              Let's Talk
+            </Button>
+          </div>
         </nav>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-foreground p-2"
+          className="md:hidden text-foreground p-2 rounded-lg hover:bg-muted transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -65,21 +69,23 @@ export function Header() {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <nav className="md:hidden glass-strong mt-3 mx-4 rounded-xl p-4 animate-scale-in">
-          <div className="flex flex-col gap-4">
+        <nav className="md:hidden bg-card border-t border-border shadow-lg animate-scale-in">
+          <div className="container mx-auto px-6 py-4 flex flex-col gap-2">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 text-base font-medium py-2"
+                className="px-4 py-3 text-base font-medium text-foreground hover:text-primary transition-colors duration-200 rounded-lg hover:bg-muted"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
               </a>
             ))}
-            <Button variant="glow" size="lg" className="mt-2">
-              Let's Talk
-            </Button>
+            <div className="pt-2 mt-2 border-t border-border">
+              <Button variant="default" size="lg" className="w-full">
+                Let's Talk
+              </Button>
+            </div>
           </div>
         </nav>
       )}

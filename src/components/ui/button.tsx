@@ -9,15 +9,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)]",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-border bg-transparent hover:bg-muted hover:text-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        outline: "border-2 border-border bg-transparent hover:bg-muted hover:border-primary/50",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-md hover:shadow-lg",
         ghost: "hover:bg-muted hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold hover:shadow-[0_0_40px_hsl(var(--primary)/0.5)] hover:-translate-y-0.5",
-        glow: "bg-primary/10 text-primary border border-primary/30 hover:bg-primary/20 hover:border-primary/50 hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]",
-        glass: "bg-card/50 backdrop-blur-xl border border-border/50 text-foreground hover:bg-card/70 hover:border-primary/30",
+        hero: "bg-gradient-to-r from-primary to-primary/90 text-primary-foreground font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5",
+        glow: "bg-primary/5 text-primary border-2 border-primary/20 hover:bg-primary/10 hover:border-primary/40",
+        glass: "bg-card border-2 border-border text-foreground hover:border-primary/50 shadow-sm hover:shadow-md",
       },
       size: {
         default: "h-10 px-4 py-2",

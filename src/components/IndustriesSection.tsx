@@ -12,48 +12,58 @@ const industries = [
 
 export function IndustriesSection() {
   return (
-    <section id="industries" className="py-24 relative overflow-hidden bg-card/20">
+    <section id="industries" className="py-32 relative overflow-hidden bg-muted/30">
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/3 rounded-full blur-[150px]" />
+        <div className="absolute top-1/2 right-0 w-1/3 h-1/2 bg-gradient-to-bl from-secondary/5 to-transparent rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-4 block">
             Who I Work With
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             Organisations That Care{" "}
             <span className="text-gradient">Deeply About People</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-lg text-muted-foreground">
             Organisations ready to modernise while keeping people at the centre.
           </p>
         </div>
 
         {/* Industries Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-          {industries.map((industry, index) => (
-            <div
-              key={industry.name}
-              className={`rounded-xl p-6 text-center hover-lift group ${
-                index % 3 === 0 ? "glass-white" : "glass"
-              }`}
-            >
-              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300 ${
-                index % 3 === 0
-                  ? "bg-white/20 group-hover:bg-white/30"
-                  : "bg-primary/10 group-hover:bg-primary/20"
-              }`}>
-                <industry.icon className="w-6 h-6 text-primary" />
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+          {industries.map((industry, index) => {
+            const isHighlighted = index % 4 === 0;
+            
+            return (
+              <div
+                key={industry.name}
+                className={`group hover-lift ${
+                  isHighlighted 
+                    ? "card-elevated bg-gradient-to-br from-primary/5 to-transparent border-primary/20" 
+                    : "card-minimal"
+                }`}
+              >
+                <div className="p-6 text-center space-y-4">
+                  <div className={`w-14 h-14 rounded-xl flex items-center justify-center mx-auto transition-all duration-300 ${
+                    isHighlighted
+                      ? "bg-primary/10 group-hover:bg-primary/20"
+                      : "bg-muted group-hover:bg-primary/10"
+                  }`}>
+                    <industry.icon className={`w-7 h-7 transition-colors ${
+                      isHighlighted ? "text-primary" : "text-primary"
+                    }`} />
+                  </div>
+                  <h3 className="text-sm font-semibold text-foreground leading-tight">
+                    {industry.name}
+                  </h3>
+                </div>
               </div>
-              <h3 className="text-sm font-medium text-foreground leading-tight">
-                {industry.name}
-              </h3>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
