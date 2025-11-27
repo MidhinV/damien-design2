@@ -35,7 +35,7 @@ export function WhyMeSection() {
 
       <div className="container mx-auto px-10 md:px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left Column - Text & Image */}
+          {/* Left Column - Text */}
           <div className="space-y-8">
             <div>
               <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-4 block">
@@ -51,39 +51,24 @@ export function WhyMeSection() {
               </p>
             </div>
 
-            {/* MultipleAI Image & Partner Badge Combined */}
-            <div className="space-y-4">
-              <div className="relative max-w-sm">
-                <div className="absolute -inset-2 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl blur-lg" />
-                <div className="relative card-elevated p-2">
-                  <img 
-                    src={multipleAILogo} 
-                    alt="MultipleAI Australia - Enterprise AI Solutions" 
-                    className="w-full h-auto rounded-lg object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-
-              {/* Partner Badge */}
-              <div className="card-elevated p-4 bg-gradient-to-br from-primary/5 to-secondary/5 border-primary/20">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Award className="w-5 h-5 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-xs text-primary font-semibold uppercase tracking-wider mb-0.5">Official Partner</p>
-                    <p className="text-sm font-bold text-foreground">MultipleAI Australia</p>
-                    <p className="text-xs text-muted-foreground mt-0.5">Enterprise AI Solutions & Implementation</p>
-                  </div>
-                </div>
+            {/* MultipleAI Image */}
+            <div className="relative max-w-md">
+              <div className="absolute -inset-2 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl blur-lg" />
+              <div className="relative card-elevated p-2">
+                <img 
+                  src={multipleAILogo} 
+                  alt="MultipleAI Solutions - Enterprise AI Solutions" 
+                  className="w-full h-auto rounded-lg object-cover"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
 
-          {/* Right Column - Reasons Grid */}
-          <div className="lg:pt-16">
-            <div className="grid sm:grid-cols-2 gap-3">
+          {/* Right Column - Reasons Grid & Partner Badge */}
+          <div className="space-y-6 lg:pt-12">
+            {/* Reasons Grid */}
+            <div className="grid sm:grid-cols-2 gap-4">
               {reasons.map((reason, index) => {
                 const isPrimary = index % 2 === 0;
                 
@@ -96,15 +81,15 @@ export function WhyMeSection() {
                         : "card-minimal"
                     }`}
                   >
-                    <div className="p-5 space-y-3">
-                      <div className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                    <div className="p-6 space-y-3">
+                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
                         isPrimary
                           ? "bg-primary/10 group-hover:bg-primary/20"
                           : "bg-muted group-hover:bg-primary/10"
                       }`}>
-                        <reason.icon className="w-5 h-5 text-primary" />
+                        <reason.icon className="w-6 h-6 text-primary" />
                       </div>
-                      <h3 className="font-bold text-base">{reason.title}</h3>
+                      <h3 className="font-bold text-lg">{reason.title}</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">
                         {reason.description}
                       </p>
@@ -112,6 +97,20 @@ export function WhyMeSection() {
                   </div>
                 );
               })}
+            </div>
+
+            {/* Partner Badge */}
+            <div className="card-elevated p-5 bg-gradient-to-br from-primary/5 to-secondary/5 border-primary/20">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Award className="w-6 h-6 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-xs text-primary font-semibold uppercase tracking-wider mb-1">Official Partner</p>
+                  <p className="text-base font-bold text-foreground">MultipleAI Solutions</p>
+                  <p className="text-xs text-muted-foreground mt-1">Enterprise AI Solutions & Implementation</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
