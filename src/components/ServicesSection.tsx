@@ -54,7 +54,7 @@ export function ServicesSection() {
         <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-tl from-primary/5 to-transparent rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-10 md:px-12 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-4 block">

@@ -26,7 +26,7 @@ const highlights = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 relative overflow-hidden bg-muted/30">
+    <section id="about" className="py-32 relative overflow-hidden bg-muted/30">
       {/* Background Pattern */}
       <div className="absolute inset-0 section-pattern opacity-10" />
       
@@ -34,10 +34,10 @@ export function AboutSection() {
       <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/30 to-transparent" />
       <div className="absolute right-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-secondary/30 to-transparent" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-10 md:px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left Column - Photo & Highlights */}
-          <div className="space-y-8">
+          <div className="space-y-10">
             {/* Damien's Photo */}
             <div className="relative max-w-sm mx-auto lg:mx-0">
               <div className="absolute -inset-3 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl blur-xl" />
@@ -71,7 +71,7 @@ export function AboutSection() {
           </div>
 
           {/* Right Column - Text Content */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             <div>
               <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-4 block">
                 About Me

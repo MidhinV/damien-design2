@@ -26,33 +26,33 @@ const reasons = [
 
 export function WhyMeSection() {
   return (
-    <section id="why-me" className="py-20 relative overflow-hidden bg-background">
+    <section id="why-me" className="py-32 relative overflow-hidden bg-background">
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
         <div className="absolute top-1/4 left-0 w-1/4 h-1/2 bg-gradient-to-r from-primary/5 to-transparent rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+      <div className="container mx-auto px-10 md:px-12 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left Column - Text & Image */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             <div>
-              <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-3 block">
+              <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-4 block">
                 Why Work With Me
               </span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 Experience That{" "}
                 <span className="text-gradient">Makes the Difference</span>
               </h2>
-              <p className="text-base text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 Deep technical understanding meets genuine empathy. Whether you're exploring AI or scaling solutions, 
                 I help you navigate with confidence.
               </p>
             </div>
 
             {/* MultipleAI Image & Partner Badge Combined */}
-            <div className="space-y-3">
+            <div className="space-y-4">
               <div className="relative max-w-sm">
                 <div className="absolute -inset-2 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl blur-lg" />
                 <div className="relative card-elevated p-2">
@@ -96,16 +96,16 @@ export function WhyMeSection() {
                         : "card-minimal"
                     }`}
                   >
-                    <div className="p-4 space-y-2.5">
-                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                    <div className="p-5 space-y-3">
+                      <div className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 ${
                         isPrimary
                           ? "bg-primary/10 group-hover:bg-primary/20"
                           : "bg-muted group-hover:bg-primary/10"
                       }`}>
                         <reason.icon className="w-5 h-5 text-primary" />
                       </div>
-                      <h3 className="font-bold text-sm">{reason.title}</h3>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
+                      <h3 className="font-bold text-base">{reason.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         {reason.description}
                       </p>
                     </div>
